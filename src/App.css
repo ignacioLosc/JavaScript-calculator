@@ -14,6 +14,7 @@
   background-color: black;
   padding: 15px;
   box-sizing: border-box;
+  margin-bottom: 15px;
 }
 
 .Input {
@@ -21,16 +22,22 @@
   text-align: end;
   font-family: 'digital-7';
   font-size: 29px;
+  margin-bottom: -15px;
+  font-weight: lighter;
 }
 
 .Output {
-  font-family: digital;
+  font-family: 'digital-7';
   font-size: 20px;
   color: orange;
   text-align: right;
-  vertical-align: text-top;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  margin-top: -5px;
+  margin-bottom: -20px;
+  display: block;
+  height: 20px;
+  font-weight: lighter;
 }
 
 @font-face {
