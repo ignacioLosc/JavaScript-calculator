@@ -7,8 +7,8 @@ function App() {
     const [firstInput, setFirstInput] = useState(true);
     const [output, setOutput] = useState();
     function validateNewInput(oldInput, newInput) {
-        if (newInput === "-") {
-
+        if (newInput === "-" && oldInput.charAt(oldInput.length - 2) === "-" && oldInput.charAt(oldInput.length - 1) === "-") {
+            return oldInput;
         }else {
             let lastChar = oldInput.charAt(oldInput.length - 1);
             // prevent same operation twice in a row
@@ -56,10 +56,20 @@ function App() {
         } else if (input.includes("-")) {
             let subtractTerms = input.split("-");
             //console.log("subtractTerms: " + subtractTerms);
+            //console.log("subtractTerms.length: " + subtractTerms.length);
+            //console.log(subtractTerms.includes(undefined)); 
             let firstTerm = subtractTerms.shift();
+            //console.log("subtractTerms after shift: " + subtractTerms);
+            //console.log(subtractTerms.includes("")); 
             //console.log("firstTerm: " + firstTerm);
+            if (subtractTerms.length === 2 && subtractTerms.includes("")) {
+                subtractTerms.shift();
+                let element = subtractTerms[0];
+                subtractTerms = ["-" + element];
+                //console.log("subtractTerms: " + subtractTerms);
+            }
             if (firstTerm.length !== 0) {
-                if (firstTerm.at(-1) === "x") {
+                if (firstTerm.at(-1) === "x" || firstTerm.at(-1) === "/") {
                     return performOperationsRecursively(firstTerm+input.split("-")[1])*-1;
                 }
                 let calculatedFirstTerm = performOperationsRecursively(firstTerm);
@@ -128,7 +138,10 @@ function App() {
         let result = performOperationsRecursively(filteredinput).toString();
         flushSync(() => {
             setInput(result);
-            //setOutput(input.trim());
+            //setOutput(filteredinput);
+            if (result === "0") {
+                setFirstInput(true);
+            }
         });
     }
     return (
