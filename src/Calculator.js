@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import { flushSync } from 'react-dom';
+import Footer from "./components/Footer/Footer.js"
 
 function App() {
     const [input, setInput] = useState("0");
@@ -150,23 +151,26 @@ function App() {
                 <h3 className='Output'>{output}</h3>
                 <h3 className='Input'>{input}</h3>
             </div>
-            <button id="clear" onClick={clearDisplay}>AC</button>
-            <button id="zero" onClick={inputValue}>0</button>
-            <button id="one" onClick={inputValue}>1</button>
-            <button id="two" onClick={inputValue}>2</button>
-            <button id="three" onClick={inputValue}>3</button>
-            <button id="four" onClick={inputValue}>4</button>
-            <button id="five" onClick={inputValue}>5</button>
-            <button id="six" onClick={inputValue}>6</button>
-            <button id="seven" onClick={inputValue}>7</button>
-            <button id="eight" onClick={inputValue}>8</button>
-            <button id="nine" onClick={inputValue}>9</button>
-            <button id="add" onClick={inputValue}>+</button>
-            <button id="subtract" onClick={inputValue}>-</button>
-            <button id="multiply" onClick={inputValue}>x</button>
-            <button id="divide" onClick={inputValue}>/</button>
-            <button id="decimal" onClick={inputValue}>.</button>
-            <button id="equals" onClick={calculateOutputValue}>=</button>
+            <button id="clear" className="AC" onClick={clearDisplay}>AC</button>
+            <button id="divide" className="Number-button" onClick={inputValue}>/</button>
+            <button id="multiply" className="Number-button" onClick={inputValue}>x</button>
+            <div className="Number-buttons-div">
+                <button id="seven" className="Number-button" onClick={inputValue}>7</button>
+                <button id="eight" className="Number-button" onClick={inputValue}>8</button>
+                <button id="nine" className="Number-button" onClick={inputValue}>9</button>
+                <button id="subtract" className="Number-button" onClick={inputValue}>-</button>
+                <button id="four" className="Number-button" onClick={inputValue}>4</button>
+                <button id="five" className="Number-button" onClick={inputValue}>5</button>
+                <button id="six" className="Number-button" onClick={inputValue}>6</button>
+                <button id="add" className="Number-button" onClick={inputValue}>+</button>
+                <button id="one" className="Number-button" onClick={inputValue}>1</button>
+                <button id="two" className="Number-button" onClick={inputValue}>2</button>
+                <button id="three" className="Number-button" onClick={inputValue}>3</button>
+                <button id="equals" className="Equals-button" onClick={calculateOutputValue}>=</button>
+                <button id="zero" className="Number-zero-button" onClick={inputValue}>0</button>
+                <button id="decimal" className="Number-button" onClick={inputValue}>.</button>
+            </div>
+            <Footer/>
         </div>
     );
   }

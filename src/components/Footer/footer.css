@@ -1,0 +1,31 @@
+.footer {
+    justify-content: center;
+    background-color: #c2c2d6;
+    position: absolute;
+    bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+  background-color: #c2c2d6;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0px;
+}
+
+.footly {
+    background-color: #c2c2d6;
+}
+
+.footerCopyrights {
+  color: var(--high-contrast);
+  /* font-size: 0.6em; */
+  background-color: #c2c2d6;
+}
+
+.version {
+  font-size: 0.6em;
+  background-color: #c2c2d6;
+}
