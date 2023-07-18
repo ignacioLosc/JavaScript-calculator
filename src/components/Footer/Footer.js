@@ -6,6 +6,9 @@ const Footer = () => {
   
     return (
           <ul>
+            <li className="footerCopyrights">
+              Designed and coded by
+            </li>
             <li className="footyli">
               <a
                   href="https://github.com/ignacioLosc"
@@ -13,12 +16,10 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   data-cy="githubLink"
               >
-                github
+                ignacioLosc {currentYear}
               </a>
             </li>
-            <li className="footerCopyrights">
-              © Ignacio {currentYear}. All rights reserved.
-            </li>
+            
             <li>
               <div className="version">v.{packageJson.version}</div>
             </li>
