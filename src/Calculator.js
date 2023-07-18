@@ -54,10 +54,10 @@ function App() {
                 return Number(input);
             }
         } else if (input.includes("-")) {
+            //console.log("input recv: " + input);
             let subtractTerms = input.split("-");
             //console.log("subtractTerms: " + subtractTerms);
             //console.log("subtractTerms.length: " + subtractTerms.length);
-            //console.log(subtractTerms.includes(undefined)); 
             let firstTerm = subtractTerms.shift();
             //console.log("subtractTerms after shift: " + subtractTerms);
             //console.log(subtractTerms.includes("")); 
@@ -123,7 +123,7 @@ function App() {
         for (var i = 0; i < filteredinput.length; i++) {
             if (operators.includes(filteredinput.charAt(i)) && operators.includes(filteredinput.charAt(i+1))) {
                 //console.log("filteredinput.charAt(i+1): " + filteredinput.charAt(i+1));
-                if (!((filteredinput.charAt(i+1) === "-") && (filteredinput.charAt(i+1) === filteredinput.charAt(Number(filteredinput.length) - 2)))) {
+                if (!((filteredinput.charAt(i+1) === "-") && ((filteredinput.charAt(i+1) === filteredinput.charAt(Number(filteredinput.length) - 3) && (filteredinput.charAt(filteredinput.length - 2) === ".")) || (filteredinput.charAt(i+1) === filteredinput.charAt(Number(filteredinput.length) - 2))))) {
                     filteredinput = filteredinput.split('');
                     filteredinput.splice(i, 1);
                     filteredinput = filteredinput.join('');
@@ -134,8 +134,8 @@ function App() {
                 }
             }
         }
-        //console.log(filteredinput);
-        let result = performOperationsRecursively(filteredinput).toString();
+        //console.log("filteredinput: " + filteredinput);
+        let result = parseFloat(performOperationsRecursively(filteredinput).toFixed(12)).toString();
         flushSync(() => {
             setInput(result);
             //setOutput(filteredinput);
